@@ -1,0 +1,67 @@
+
+plugins {
+    id 'org.springframework.boot' version '3.1.5'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+plugins {
+    id "java"
+}
+
+ext {
+    camelVersion = '4.2.0'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url "http://localhost:8081/repository/gradle/"
+        allowInsecureProtocol = true
+    }
+}
+
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "org.apache.camel:camel-test-spring-junit5:${camelVersion}"
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+
+    implementation platform("org.apache.camel.springboot:camel-spring-boot-bom:${camelVersion}")
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+// https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb
+    implementation 'org.springframework.data:spring-data-mongodb'
+
+
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-spring-main
+    implementation "org.apache.camel:camel-spring-main:${camelVersion}"
+    implementation "org.apache.camel:camel-management:${camelVersion}"
+    implementation "org.apache.camel:camel-core:${camelVersion}"
+    implementation "org.apache.camel:camel-mongodb:${camelVersion}"
+    implementation "org.apache.camel:camel-jetty:${camelVersion}"
+
+    implementation "org.apache.camel:camel-spring-xml:${camelVersion}"
+    implementation "org.apache.camel:camel-stream:${camelVersion}"
+
+    // include this otherwise xml route will not start properly
+    implementation "org.apache.camel.springboot:camel-spring-boot-xml-starter:${camelVersion}"
+
+    implementation "org.apache.camel.springboot:camel-xml-jaxb-dsl-starter:${camelVersion}"
+
+
+    runtimeOnly "org.apache.logging.log4j:log4j-core"
+
+
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
