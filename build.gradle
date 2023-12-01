@@ -36,6 +36,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-actuator"
 // https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb
     implementation 'org.springframework.data:spring-data-mongodb'
+    implementation "org.springframework.boot:spring-boot-starter-data-mongodb"
 
 
     // https://mvnrepository.com/artifact/org.apache.camel/camel-spring-main
