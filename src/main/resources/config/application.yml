@@ -24,13 +24,13 @@ spring:
     name: spring_camel_mongodb_demo
   data:
     mongodb:
-      host: localhost
       port: 27017
       username: myUserAdmin
       password: pass1234
       dataBase: admin
       dataBaseCollection: mydb
       collection: persons
+      host: host.docker.internal
 
 camel:
   springboot:

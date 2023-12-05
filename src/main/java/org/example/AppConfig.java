@@ -14,8 +14,9 @@ public class AppConfig {
     @Bean(value = "mongoBean")
     public MongoClient mongoClient(@Value("${spring.data.mongodb.username}") String username,
                                    @Value("${spring.data.mongodb.password}")    String password,
+                                   @Value("${spring.data.mongodb.host}")    String host,
                                    @Value("${spring.data.mongodb.port}")    Integer port,
                                    @Value("${spring.data.mongodb.dataBase}")    String dataBase){
-        return MongoClients.create(String.format("mongodb://%s:%s@localhost:%s/%s",username,password,port,dataBase ));
+        return MongoClients.create(String.format("mongodb://%s:%s@%s:%s/%s",username,password,host,port,dataBase ));
     }
 }
