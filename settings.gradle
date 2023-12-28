@@ -1,2 +1,12 @@
+pluginManagement {
+    repositories {
+        maven {
+            url "http://localhost:8081/repository/gradle/"
+            allowInsecureProtocol = true
+        }
+    }
+
+}
+
 rootProject.name = 'camel4-test'
 
